@@ -5,18 +5,13 @@ Version: 1.4
 Date: 2015-12-07
 Author: John Muschelli III
 Maintainer: John Muschelli III <muschellij2@gmail.com>
-Description: This includes functions for creating 3D and 4D images using WebGL,
-    RGL, and JavaScript Commands.  This package relies on the X ToolKit (XTK,
-    https://github.com/xtk/X#readme).
+Description: This includes functions for creating 3D and 4D images using WebGL,    RGL, and JavaScript Commands.  This package relies on the X ToolKit (XTK,    https://github.com/xtk/X#readme).
 License: GPL-2
 LazyData: true
-Depends:
-    rgl,
-    misc3d,
-    rglwidget,
-    oro.nifti
+Depends:    rgl,    misc3d,    rglwidget,    oro.nifti
 Copyright: MNI152_T1_2mm_brain.nii.gz from Copyright (C) 1993-2009 Louis
-    Collins, McConnell Brain Imaging Centre, Montreal Neurological Institute,
-    McGill University 6th generation non-linear symmetric brain.
+    Collins, McConnell Brain Imaging Centre, Montreal Neurological Institute,    McGill University 6th generation non-linear symmetric brain.
 RoxygenNote: 5.0.0
+Remotes: neuroconductor/oro.nifti@d630f771fbd4c5229478808d8199fe55e5c1fbf3
+biocViews:
 
