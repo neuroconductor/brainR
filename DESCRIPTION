@@ -12,6 +12,6 @@ Depends:    rgl,    misc3d,    oro.nifti
 Copyright: MNI152_T1_2mm_brain.nii.gz from Copyright (C) 1993-2009 Louis
     Collins, McConnell Brain Imaging Centre, Montreal Neurological Institute,    McGill University 6th generation non-linear symmetric brain.
 RoxygenNote: 5.0.1.9000
+Remotes: neuroconductor/oro.nifti@24844d811d488ba6f7a1dde3ec84d1a2698c15fa
 biocViews:
-Remotes: neuroconductor/oro.nifti@3a94a1d847dcebf814a6bae70a96bb40a27545a9
 
