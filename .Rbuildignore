@@ -1,8 +1,10 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\.travis\.yml$
-
+^cran-comments\.md$
 ^appveyor\.yml$
+^README\.Rmd$
+
 ^DESCRIPTION\.bak$
 ^\./\.travis\.yml\.bak$
 ^\./appveyor\.yml\.bak$
