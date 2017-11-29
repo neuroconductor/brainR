@@ -25,4 +25,4 @@ Encoding: UTF-8
 Suggests: 
     covr
 biocViews: 
-Remotes: neuroconductor/oro.nifti@248fafa9254064c3290286abd3ecf2dd791286fb
+Remotes: neuroconductor/oro.nifti@c25f6bcb1200506a3e39127f550bcca7766b0107
