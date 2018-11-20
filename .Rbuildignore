@@ -1,6 +1,7 @@
 ^\./appveyor\.yml\.bak$
 ^\./\.travis\.yml\.bak$
 ^DESCRIPTION\.bak$
+^CRAN-RELEASE$
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\.travis\.yml$
