@@ -3,7 +3,7 @@ Type: Package
 Title: Helper Functions to 'misc3d' and 'rgl' Packages for Brain
         Imaging
 Version: 1.5.2
-Date: 2017-10-10
+Date: 2018-11-18
 Authors@R: c(person(given = "John", family = "Muschelli", email =
         "muschellij2@gmail.com", role = c("aut", "cre")))
 Maintainer: John Muschelli <muschellij2@gmail.com>
@@ -15,10 +15,12 @@ License: GPL-2
 LazyData: true
 Depends: rgl, misc3d, oro.nifti
 Imports: grDevices
-RoxygenNote: 6.0.1.9000
+RoxygenNote: 6.1.0
 Encoding: UTF-8
-Suggests: covr, testthat
-biocViews:
 Repository: Neuroconductor
-Remotes: 
+Suggests: 
+    covr,
+    testthat
+Remotes:  
     neuroconductor/oro.nifti@f2b69621fdb62e21c79a13e8a16ab30f49b77efc
+biocViews: 
