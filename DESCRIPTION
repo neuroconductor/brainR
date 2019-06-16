@@ -1,6 +1,7 @@
 Package: brainR
 Type: Package
-Title: Helper Functions to 'misc3d' and 'rgl' Packages for Brain Imaging
+Title: Helper Functions to 'misc3d' and 'rgl' Packages for Brain
+        Imaging
 Version: 1.5.2.1
 Date: 2018-11-18
 Authors@R: c(person(given = "John", family = "Muschelli", email =
@@ -16,8 +17,10 @@ Depends: rgl, misc3d, oro.nifti
 Imports: grDevices
 RoxygenNote: 6.1.0
 Encoding: UTF-8
-Suggests: covr, testthat
-biocViews:
 Repository: Neuroconductor
-Remotes: 
+Suggests: 
+    covr,
+    testthat
+Remotes:  
     neuroconductor/oro.nifti@07f7783a20bb8cc076a1412eecfbe76d2cb82617
+biocViews: 
