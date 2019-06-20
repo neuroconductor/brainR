@@ -17,10 +17,8 @@ Depends: rgl, misc3d, oro.nifti
 Imports: grDevices
 RoxygenNote: 6.1.0
 Encoding: UTF-8
+Suggests: covr, testthat
+biocViews:
 Repository: Neuroconductor
-Suggests: 
-    covr,
-    testthat
-Remotes:  
-    neuroconductor/oro.nifti@07f7783a20bb8cc076a1412eecfbe76d2cb82617
-biocViews: 
+Remotes: 
+    neuroconductor/oro.nifti@acbc87a93512a48ae9e627823b8a08337da59bcc
