@@ -1,5 +1,4 @@
 language: r
-cache: packages
 warnings_are_errors: true
 use_bioc: true
 bioc_required: true
@@ -13,10 +12,14 @@ addons:
     - libfftw3-dev
     - libgsl0-dev
     - libgsl0ldbl
+r_binary_packages:
+- rgl
 os:
 - linux
 - osx
 osx_image: xcode9
+services:
+- xvfb
 r:
 - 3.3
 - 3.4
@@ -40,12 +43,14 @@ before_install:
 - wget -O ${fname} http://bit.ly/travis_helpers
 - cat ${fname}; source ${fname}; rm ${fname}
 - cat DESCRIPTION
-- start_xvfb ;
+- codename=`linux_codename`;
+- if [ "${codename}" = "trusty" ]; then start_xvfb ; fi
 - export rver=`r_version`; echo $rver ;
-- if [ "$TRAVIS_OS_NAME" = "osx" ]; then no_open_mp ; fi
-- jags_install ;
-- v8_install ;
-- dcmtk_install ;
+- if [ "$TRAVIS_OS_NAME" = "osx" ]; then no_open_mp ; brew install -v freetype ; fi
+- jags_install || true;
+- v8_install || true;
+- dcmtk_install || true;
+- gsl_install 2.1 || true ;
 - export cmake_version="3.11"
 - cmake --version
 - x=`cmake_setup`; echo "${x}"; eval ${x};
@@ -86,10 +91,12 @@ deploy:
   on:
     tags: true
   api-key:
-    secure: MTEYK7OtDebGxWAIb8U8+ueH7zyzdc2OlfNKBFhzPr4b+7YZnFsg+3Ugp9rBwh6F8f7adtuZNPQnvj5rO8KU6xvcAyrQcLvR1SfY3IfP7AAuw4lfYrtoROxDFJLHgb/5aAzkNLQ8OSIU3crPY2sD/GbST4MjbvzmqWQF8tsrOTCZER33IewUMIRKSMNhqz0tr3EU1VwYKvp/Gin7fkbqC8pbT32edKVvg0wv7Nr7QZEKNPLsmcO+XmNxgGxS2RR30xX4jpqT1+HCaQYv33F0J57W/BnhogOHr1SHQApmx8eBgiBLMLwmsh0oLW8hd3MG+Xm3vWWOBH3kTcjZdKfpeIR039oWwK1V2U/ejXWAPrB26xyxM5Ppna+/Winu+Jk9MtSS7NU3mA70sRz3gdc2hlpa7E600WiETSuIIY2H4heIWWv5qdqx2k0hM/7a2NEmWkhALs3jzsivjVksUyxr7RfDDAQA5ItG/WBm0lXDHuehxkcrQAIIiNE3aNbo8T1agi3UYo/mg0ek1w7JXpJa7Io+dfsup+e6xNEzZC/F63na4+QESzvyEcoUM9/HQLrTdCLJ5h288Wx5rcdlPVfbsGlPA3dYmCRMJYGscaU+vLXH5mgtftRakM+3Wo1ZEnFeHd5hqm2QauFPeCUBRFXBwQbgsFa2mJx3dn4YMYfOgTo=
+    secure: W3tatz+9lo6Xf02ZzBUnRhSLi7ag/JkQWcgnTuq7yMZUKbIF9nz/I3uR/F0V/icQ/uASRNx0yf7AbxdH2OF1fGtzVe4KJUO/VOywcZ5au7SLjXnjoSCQ+uR+OweFHGDgysZEX4znjaUhxwsynWeWF1cRxO0RWDGIHkqrxDipQgXnUGmO2US9XUK7vWq3MZkmjmNgNHneqMpj3PyxY1XEV/etDfTrAzYI2FcuMWZv7GY8vQjQcQ2YUdG+6+R+N8f9AS/g61O9sJ1q60vBOus356Id/ySGhVR0+qYb4NFZS+kjNEcg3V5OuwhvGsmEoAX53mdyP09Vj0g7R/1BLKPr9V52UPk4m13oQOpLV0Etsq0uomeE4ELtodKKsWDl0WNt0dRIj1CoXLTzKHyra0eHPWeB1MfrrtCV7Z2SirdRaKauq6g6dveCfjYSyxs9WlrknUs8jOgfiqw6KEWUG3F/lY2EKyyY0ACif2L1AUhQm7C6wU+7MsShCxvNf/eJKBFC/07iQvEWvdmagHSCYzSxOh0khE79OjiWyxKueoeB4X2NbN2D6dpSXdwP2FvopIPqTRO20FHfO/cVFgSRShqUI0EAidTZoLyTPjnjccfxCjgCkYA4rGs0cUmgiSkiwUM62BnwvQCRltUEohNdtRjmYFSkFK2Fu+W3pjYcHKfoVJo=
 after_deploy:
 - echo "${PROJECT_NAME}" | grep -q "releases"; if [[ $? -eq 0 ]]; then run_coverage="false";
   else run_coverage=; fi;
 - if [[ "${TRAVIS_OS_NAME}" == "linux" && ${TRAVIS_R_VERSION_STRING} = "release" &&
   -z "${run_coverage}" ]]; then echo 'covr::coveralls(type = "all", quiet = FALSE)'
   > neuroc_covr.R ; travis_wait 100 Rscript neuroc_covr.R ; rm neuroc_covr.R ; fi
+
+#neuroc.deps version (SHA): 6302102
