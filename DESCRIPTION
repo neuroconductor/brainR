@@ -21,4 +21,4 @@ Suggests: covr, testthat
 biocViews:
 Repository: Neuroconductor
 Remotes: 
-    neuroconductor/oro.nifti@59bdaa67daeeaa3153bc2f19e2a2c0ea8c8286d0
+    neuroconductor/oro.nifti@c8832b410ec2ccd86b23e23db79d8d0291fecb2a
