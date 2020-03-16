@@ -1,0 +1,18 @@
+# Sample .travis.yml for R projects.
+language: r
+warnings_are_errors: true
+sudo: required
+
+r:
+  - release
+  - devel
+
+r_check_args: --as-cran
+before_install:
+  - "sh -e /etc/init.d/xvfb start"
+  - "export DISPLAY=:99.0"  
+
+notifications:
+  email:
+    on_success: change
+    on_failure: change
