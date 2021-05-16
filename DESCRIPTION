@@ -1,26 +1,27 @@
 Package: brainR
 Type: Package
-Title: Helper Functions to 'misc3d' and 'rgl' Packages for Brain Imaging
+Title: Helper Functions to 'misc3d' and 'rgl' Packages for Brain
+        Imaging
 Version: 1.6.0
 Date: 2019-12-03
-Authors@R: c(person(given = "John",
-           family = "Muschelli",
-           email = "muschellij2@gmail.com",
-           role = c("aut", "cre")))
+Authors@R: c(person(given = "John", family = "Muschelli", email =
+        "muschellij2@gmail.com", role = c("aut", "cre")))
 Maintainer: John Muschelli <muschellij2@gmail.com>
-Description: This includes functions for creating 3D and 4D images using 
-    'WebGL', 'rgl', and 'JavaScript' commands.  
-    This package relies on the X toolkit ('XTK',
-    <https://github.com/xtk/X#readme>).
+Description: This includes functions for creating 3D and 4D images
+        using 'WebGL', 'rgl', and 'JavaScript' commands. This package
+        relies on the X toolkit ('XTK',
+        <https://github.com/xtk/X#readme>).
 License: GPL-2
 LazyData: true
-Depends:
-    rgl,
-    misc3d,
-    oro.nifti
-Imports:
-    grDevices
+Depends: rgl, misc3d, oro.nifti
+Imports: grDevices
 RoxygenNote: 7.0.1
 Encoding: UTF-8
 Suggests: 
-    servr
+    servr,
+    covr,
+    testthat
+Repository: Neuroconductor
+Remotes: 
+    neuroconductor/oro.nifti@bd06b05d2a090c743e51d745a826e8b77af278f0
+biocViews: 
